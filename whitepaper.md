@@ -1,5 +1,10 @@
 # Consensus: A Digital Payment Processor with Escrow Guarantees
 
+* **Author:** Ahmed Umran Hussain
+* **Date:** 2018-08-01
+* **Revision:** 00 (work in progress)
+* **Copyright:** Irukandji Labs 2018
+
 This document specifies a business model for an escrow based payment processor for transactions between two parties that have little reason to trust each other to independently fulfill their commercial commitments. This document is written in the context of the Maldivian economy, with an awareness of the informal nature of commercial transactions that happen between individuals at high frequency. The document is divided into the following sections.
 
 - A Discussion of the Target Market and the Demand for An Escrow Solution
@@ -8,7 +13,7 @@ This document specifies a business model for an escrow based payment processor f
 - A Discussion of the Solution We Propose
   - Abstract
   - Cryptographic Primitives
-  - Process Flow and Logic
+  - Protocols and Logic
 
 ## Target Market and Demand for An Escrow Solution
 ### Target Market
