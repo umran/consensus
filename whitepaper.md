@@ -1,4 +1,4 @@
-# Consensus: A Digital Payment Processor with Escrow Guarantees
+# Consensus: A Digital Payment Processor That Doubles as an Escrow Service
 
 * **Author:** Ahmed Umran Hussain
 * **Date:** 2018-08-01
@@ -7,16 +7,16 @@
 
 This document specifies a business model for an escrow based payment processor for transactions between two parties that have little reason to trust each other to independently fulfill their commercial commitments. This document is written in the context of the Maldivian economy, with an awareness of the informal nature of commercial transactions that happen between individuals at high frequency. The document is divided into the following sections.
 
-- A Discussion of the Target Market and the Demand for An Escrow Solution
+- A Discussion of the Target Market and the Demand for an Escrow Solution
   - The Target Market
-  - The Demand for and Relevance of An Escrow Based Payment Processor
+  - The Demand for and Relevance of an Escrow Based Payment Processor
 - A Discussion of the Solution We Propose
   - Abstract
   - An Example Transaction
   - Cryptographic Primitives
   - Protocols and Logic
 
-## Target Market and Demand for An Escrow Solution
+## Target Market and Demand for an Escrow Solution
 ### Target Market
 The target market of the solution we propose are merchants who either
 
@@ -27,7 +27,7 @@ The target market of the solution we propose are merchants who either
 
 The type of merchant characterized by these conditions are plenty in the Maldives, with several individuals operating boutique retail establishments at an informal capacity, that is to say that a significant chunk of these establishments do not have a registered physical address nor do they, in some cases, have an official online address beyond their social media handles. The casual, informal nature of their commercial presence does not lend them the sort of authority that would inspire their customers to make payments on demand for pending orders. The small scale of their operations, on the other hand, makes it infeasible for them to implement a solution such as BML's digital payment gateway, which entails additional fixed costs as well as maintenance and development costs for implementation and operation. Moreover, these establishments are usually so small that they do not operate a website or other online application, which is usually a prerequisite for integration with online payment processors.
 
-### Demand for and Relevance of An Escrow Based Payment Processor
+### Demand for and Relevance of an Escrow Based Payment Processor
 Given that it would be infeasible for merchants in the target market to adopt traditional payment processors, what would an alternative payment service look like that would be desirable for these merchants and their customers? Any service looking for high adoption rates in this market should consider and address the 4 characteristics about the market enumerated in the section above.
 
 Characteristic 1) demands that an alternative payment processor give assurances to customers that their orders will be fulfilled after payment. When a client approaches an unknown seller under the traditional model, they might be reluctant to pay upfront for an order that they can't reasonably be sure will be fulfilled by the merchant. This is the primary reason an escrow service is appropriate for the market. A payment processor under an escrow model will still allow customers to pay upfront but, instead of going directly to the merchant, the funds will stay in escrow until the seller can fulfill the order.
