@@ -21,8 +21,8 @@ The target market of the solution we propose are merchants who either
 
 1) do not currently have a well enough established reputation to be able to accept credit card payments on demand for pending orders, or
 2) operate at a small enough scale that makes it infeasible for them to integrate their point of sale with a payment gateway that would allow them to process credit card transactions, or
-3) do not have the capacity to implement both point of sale machine payments as well as online payments since the two are currently being offered as separate services
-4) do not have the sufficient technical resources to integrate with a payment gateway that would allow them to process credit card transactions online.
+3) do not have the capacity to implement both point of sale machine payments as well as online payments since the two are currently being offered as separate services, or
+4) do not have the sufficient technical resources to integrate existing digital assets with a payment gateway that would allow them to process credit card transactions online.
 
 The type of merchant characterized by these conditions are plenty in the Maldives, with several individuals operating boutique retail establishments at an informal capacity, that is to say that a significant chunk of these establishments do not have a registered physical address nor do they, in some cases, have an official online address beyond their social media handles. The casual, informal nature of their commercial presence does not lend them the sort of authority that would inspire their customers to make payments on demand for pending orders. The small scale of their operations, on the other hand, makes it infeasible for them to implement a solution such as BML's digital payment gateway, which entails additional fixed costs as well as maintenance and development costs for implementation and operation. Moreover, these establishments are usually so small that they do not operate a website or other online application, which is usually a prerequisite for integration with online payment processors.
 
