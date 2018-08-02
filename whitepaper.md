@@ -4,7 +4,7 @@ This document specifies a business model for an escrow based payment processor f
 
 - A Discussion of the Target Market and the Demand for An Escrow Solution
   - The Target Market
-  - The Relevance of an Escrow Based Payment Processor
+  - The Demand for and Relevance of An Escrow Based Payment Processor
 - A Discussion of the Solution We Propose
   - Abstract
   - Cryptographic Primitives
@@ -20,5 +20,5 @@ The target market of the solution we propose are merchants who either
 
 The type of merchant characterized by these conditions are plenty in the Maldives, with several individuals operating boutique retail establishments at an informal capacity, that is to say that a significant chunk of these establishments do not have a registered physical address nor do they, in some cases, have an official online address beyond their social media handles. The casual, informal nature of their commercial presence does not lend them the sort of authority that would inspire their customers to make payments on demand for pending orders. The small scale of their operations, on the other hand, makes it unfeasible for them to implement a solution such as BML's online payment gateway, which entails additional fixed costs as well as maintenance and development costs for implementation and operation. Moreover, these establishments are usually so small that they do not operate a website or other online application, which is usually a prerequisite for integration with online payment processors.
 
-### Demand for An Escrow Solution
+### Demand for and Relevance of An Escrow Based Payment Processor
 Given that it would be unfeasible for merchants in the target market to adopt traditional payment processors, what would an alternative payment service look like that would be desirable for these merchants and their customers? Any service looking for high adoption rates in this market should consider and address the 3 characteristics about the market enumerated in the section above.
