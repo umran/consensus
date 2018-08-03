@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/umran/consensus#readme",
   "dependencies": {
+    "google-closure-library": "^20180716.0.0",
     "tweetnacl": "^1.0.0"
   }
 }

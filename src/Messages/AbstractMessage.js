@@ -83,7 +83,7 @@ class AbstractMessage {
     }
 
     return Object.keys(headers).reduce((result, key) => {
-      result[key] = encoders.byteArrayToHex(headers[key])
+      result[key] = encoders.byteArrayToB64(headers[key])
       return result
     }, {})
   }
@@ -118,9 +118,9 @@ class AbstractMessage {
 
   _verifyPacket() {
     // verify ephemeral public key
-    const ephemeralPublicKey = encoders.hexToByteArray(this._packet.header.ephemeralPublicKey)
-    const ephemeralPublicKeyCertificate = encoders.hexToByteArray(this._packet.header.ephemeralPublicKeyCertificate)
-    const identityPublicKey = encoders.hexToByteArray(this._packet.header.identityPublicKey)
+    const ephemeralPublicKey = encoders.b64ToByteArray(this._packet.header.ephemeralPublicKey)
+    const ephemeralPublicKeyCertificate = encoders.b64ToByteArray(this._packet.header.ephemeralPublicKeyCertificate)
+    const identityPublicKey = encoders.b64ToByteArray(this._packet.header.identityPublicKey)
 
     const ephemeralPublicKeyVerification = crypto.primitives.verifySignature(ephemeralPublicKey, ephemeralPublicKeyCertificate, identityPublicKey)
 
@@ -131,7 +131,7 @@ class AbstractMessage {
     // verify message
     var message = JSON.stringify(this._packet.body)
     message = encoders.stringToByteArray(message)
-    const signature = encoders.hexToByteArray(this._packet.header.signature)
+    const signature = encoders.b64ToByteArray(this._packet.header.signature)
 
     const messageVerification = crypto.primitives.verifySignature(message, signature, ephemeralPublicKey)
 
