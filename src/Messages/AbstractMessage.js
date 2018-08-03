@@ -1,4 +1,4 @@
-const encoders = require('../encoders')
+const encoders = require('../utilities/encoders')
 const crypto = require('../crypto')
 
 class AbstractMessage {
@@ -44,17 +44,6 @@ class AbstractMessage {
 
   _validatePacket() {
     // validation rules go here. throw error if invalid
-    this._validateHeader()
-    this._validateBody()
-  }
-
-  _validateHeader() {
-    // more comprehensive validation rules will be added later
-
-  }
-
-  _validateBody() {
-    // more comprehensive validation rules will be added later
   }
 
   _validateMessage(message) {
