@@ -1,0 +1,33 @@
+{
+  "name": "consensus",
+  "version": "0.0.0",
+  "description": "Escrow based digital payment processor",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umran/consensus.git"
+  },
+  "keywords": [
+    "digital",
+    "payments",
+    "consensus",
+    "escrow",
+    "payment",
+    "processor"
+  ],
+  "author": "Ahmed Umran Hussain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umran/consensus/issues"
+  },
+  "homepage": "https://github.com/umran/consensus#readme",
+  "dependencies": {
+    "tweetnacl": "^1.0.0"
+  }
+}

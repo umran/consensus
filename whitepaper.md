@@ -14,7 +14,7 @@ This document specifies a business model for an escrow based payment processor f
   - Abstract
   - An Example Transaction
   - Cryptographic Primitives
-  - Protocols and Logic
+  - The Consensus Escrow Protocol
 
 ## Target Market and Demand for an Escrow Solution
 ### Target Market
@@ -44,3 +44,33 @@ The business model and protocol we propose here is tailored to the target market
 
 ### An Example Transaction
 When a customer wants to make a purchase, the merchant issues a digitally signed invoice that authenticates themselves and sends the invoice to the customer. The customer checks the merchant signature, then signs the invoice, authenticating themselves and sends the invoice to the payment processor, indicating their intent to undertake the transaction. The payment processor checks the signatures of both the customer and the merchant, and if the signatures check out, determines that they have entered into a contract to make the transaction. The payment processor then prompts the customer to make the relevant payment via credit/debit card. This is done through the payment processor's implementation of an existing online payment gateway, such as BML's payment gateway. Upon completion of the payment, the payment gateway creates a signed entry in its logs attesting that the customer has paid the relevant amount in order to fulfill their part of the contract entered into with the merchant. A copy of this entry is sent to the merchant so that they may confirm that the customer has completed the payment. The merchant then delivers the goods, along with a signed receipt, which the customer signs and sends to the payment processor, indicating that the order has been fulfilled by the merchant. The payment processor then creates a signed entry in its logs attesting that the funds pertaining to the transaction have been released to the merchant. The merchant then claims these funds by appeal to the strong cryptographic evidence attesting that the transaction has been fulfilled. The payment processor settles the funds via bank transfer or similar service.
+
+### Cryptographic Primitives
+Digital signatures are the primary cryptographic primitive used in this service. Digital signatures are used for the authentication of users and for checking the integrity of messages.
+
+Each party has a unique identity key pair (a private key and a public key) associated with them, that is used to authenticate themselves. An Identity key pair is long-lived and its private key remains a secret known only to the owner of the key.
+
+Transactions take place as a series of messages between the parties involved. Every message is digitally signed by a random unique key known as an ephemeral key. All ephemeral keys used for signing messages are in turn signed using identity keys that authenticate the respective sender. Ephemeral keys are discarded after signing its message and are never reused.
+
+The specific signature scheme that will be used in this service is `ed25519`. This particular variant was chosen for its speed, robust security and small signature size. It offers a good mix of high security and efficiency, which is ideal for a payment service that relies on the frequent generation and transmission of keys and signatures. Click [here](https://ed25519.cr.yp.to/) for more information on `ed25519`.
+
+### The Consensus Escrow Protocol
+The Consensus Escrow Protocol is the primary protocol that will be used in transactions between customers and merchants.
+
+The parties involved in the protocol are as follows:
+
+- Merchant
+- Payment Processor
+- Customer
+
+The protocol is defined by the following sequence of messages:
+
+1) The merchant initiates the protocol by generating a `Signed Invoice` for the order. The merchant then sends the `Signed Invoice` to the customer and the payment processor.
+
+2) The customer checks the contents of the `Signed Invoice` and verifies the merchant's signature. The customer then generates a `Signed Promise of Payment` that references the `Signed Invoice` and sends it to the merchant and the payment processor.
+
+3) The payment processor checks the contents of the `Signed Promise of Payment`, verifies the customer's signature then checks the contents of the `Signed Invoice` it references and checks the merchant's signature. If the chain between the `Signed Invoice`and `Signed Promise of Payment` is verified, the payment processor deducts the value of the order from the customer's account (by either prompting an online credit card transaction or using the customer's prepaid funds). The payment processor then creates a `Signed Escrow Contract`, referencing the `Signed Promise of Payment` and sends it to both the merchant and the customer, who verify the contract independently.
+
+4) The merchant delivers the goods to the customer upon which the customer produces a `Signed Proof of Delivery` referencing the `Signed Escrow Contract`and sends it to both the merchant and the payment processor.
+
+5) The payment processor checks the contents of the `Signed Proof of Delivery` and verifies the customer's signature before releasing the funds to the merchant.
