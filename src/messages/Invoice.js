@@ -11,7 +11,7 @@ class Invoice extends AbstractMessage {
 
   // common methods
   _validateMessage(message) {
-    // validation logic goes here. if invalid, throw error
+
   }
 
   // send methods
