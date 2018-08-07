@@ -1,0 +1,120 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "minProperties": 2,
+  "maxProperties": 2,
+  "additionalProperties": false,
+  "properties": {
+    "invoiceSig": {
+      "$id": "/properties/invoiceSig",
+      "type": "string",
+      "title": "The Invoicesig Schema ",
+      "examples": [
+        "uKBwZuAjZ/h24EOXAyKDHHWq793YgzaHYhTbp7CStOxI/kJ2uPbh2LgbvZ7emlnOH2poaRkoASLq9SdRWuQHCA=="
+      ],
+      "minLength": 88,
+      "maxLength": 88
+    },
+    "invoice": {
+      "$id": "/properties/invoice",
+      "type": "object",
+      "minProperties": 4,
+      "maxProperties": 4,
+      "additionalProperties": false,
+      "properties": {
+        "orderId": {
+          "$id": "/properties/invoice/properties/orderId",
+          "type": "string",
+          "title": "The Orderid Schema ",
+          "examples": [
+            "1234983940982098123498394098209812349883940982098123498394098209"
+          ],
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "manifest": {
+          "$id": "/properties/invoice/properties/manifest",
+          "type": "array",
+          "maxItems": 255,
+          "minItems": 1,
+          "items": {
+            "$id": "/properties/invoice/properties/manifest/items",
+            "type": "object",
+            "minProperties": 4,
+            "maxProperties": 4,
+            "additionalProperties": false,
+            "properties": {
+              "item": {
+                "$id": "/properties/invoice/properties/manifest/items/properties/item",
+                "type": "string",
+                "title": "The Item Schema ",
+                "examples": [
+                  "chicken korma"
+                ],
+                "maxLength": 255
+              },
+              "quantity": {
+                "$id": "/properties/invoice/properties/manifest/items/properties/quantity",
+                "type": "integer",
+                "title": "The Quantity Schema ",
+                "examples": [
+                  2
+                ]
+              },
+              "price": {
+                "$id": "/properties/invoice/properties/manifest/items/properties/price",
+                "type": "number",
+                "title": "The Price Schema ",
+                "examples": [
+                  20
+                ]
+              },
+              "tax": {
+                "$id": "/properties/invoice/properties/manifest/items/properties/tax",
+                "type": "number",
+                "title": "The Tax Schema ",
+                "examples": [
+                  0.10000000149011612
+                ],
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "item",
+              "quantity",
+              "price",
+              "tax"
+            ]
+          }
+        },
+        "totalPreTax": {
+          "$id": "/properties/invoice/properties/totalPreTax",
+          "type": "number",
+          "title": "The Totalpretax Schema ",
+          "examples": [
+            64
+          ]
+        },
+        "totalPostTax": {
+          "$id": "/properties/invoice/properties/totalPostTax",
+          "type": "number",
+          "title": "The Totalposttax Schema ",
+          "examples": [
+            67.19999694824219
+          ]
+        }
+      },
+      "required": [
+        "orderId",
+        "manifest",
+        "totalPreTax",
+        "totalPostTax"
+      ]
+    }
+  },
+  "required": [
+    "invoiceSig",
+    "invoice"
+  ]
+}

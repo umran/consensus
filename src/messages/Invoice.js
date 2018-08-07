@@ -1,17 +1,18 @@
 const AbstractMessage = require('./AbstractMessage')
+const validate = require('../validators').invoice
 
 class Invoice extends AbstractMessage {
-  constructor(type, identityKeys, packet) {
-    super(type, identityKeys, packet)
+  constructor(options) {
+    super(options)
 
-    if (type === 'receive') {
+    if (options.type === 'receive') {
       this._validateMessage(this._message)
     }
   }
 
   // common methods
   _validateMessage(message) {
-
+    validate(message)
   }
 
   // send methods

@@ -1,15 +1,15 @@
 const encoders = require('../utilities/encoders')
 const crypto = require('../crypto')
+const validate = require('../validators').packet
 
 class AbstractMessage {
-  constructor(type, identityKeys, packet) {
-    if(type === 'send') {
-      this._identityPublicKey = identityKeys.publicKey
-      this._ephemeralKeys = crypto.generateEphemeralKeys(identityKeys.secretKey)
+  constructor(options) {
+    if(options.type === 'send') {
+      this._identityPublicKey = options.identityKeys.publicKey
+      this._ephemeralKeys = crypto.generateEphemeralKeys(options.identityKeys.secretKey)
     }
-    else if (type === 'receive') {
-      packet = identityKeys
-      this._packet = JSON.parse(packet)
+    else if (options.type === 'receive') {
+      this._packet = options.packet
       this._validatePacket()
       this._verifyPacket()
       this._setMeta(this._packet.header)
@@ -44,6 +44,7 @@ class AbstractMessage {
 
   _validatePacket() {
     // validation rules go here. throw error if invalid
+    validate(this._packet)
   }
 
   _validateMessage(message) {
@@ -100,7 +101,7 @@ class AbstractMessage {
     this._packetize()
     this._validatePacket()
     this._setMeta(this._packet.header)
-    return JSON.stringify(this._packet)
+    return this._packet
   }
 
   // receive methods

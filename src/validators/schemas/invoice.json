@@ -15,6 +15,7 @@
     "manifest": {
       "$id": "/properties/manifest",
       "type": "array",
+      "maxItems": 255,
       "minItems": 1,
       "items": {
         "$id": "/properties/manifest/items",
