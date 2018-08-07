@@ -11,6 +11,7 @@ class TransactionChain {
     this._metaData = {}
   }
 
+  // this method checks that who we assume to be the merchant actually did sign the invoice
   _checkInvoice() {
     const invoicePacket = {
       header: {
@@ -27,6 +28,7 @@ class TransactionChain {
 
   }
 
+  // this method checks that who we assume to be the customer actually did sign the promise of payment referencing what we have verified to be a valid invoice signed by who we assume to be the merchant
   _checkPromiseOfPayment() {
     let invoice = this._checkInvoice()
     const promiseOfPaymentPacket = {
@@ -46,6 +48,7 @@ class TransactionChain {
     return new PromiseOfPayment({type: 'receive', packet: promiseOfPaymentPacket})
   }
 
+  // this method checks that who we assume to be the server actually did sign the escrow contract referencing what we have verified to be a valid promise of payment signed by who we assume to be the customer
   _checkEscrowContract() {
     let promiseOfPayment = this._checkPromiseOfPayment()
     const escrowContractPacket = {
@@ -65,6 +68,7 @@ class TransactionChain {
     return new EscrowContract({type: 'receive', packet: escrowContractPacket})
   }
 
+  // this method checks that who we assume to be the client actually did sign the proof of delivery referencing what we have verified to be a valid escrow contract signed by who we assume to be the server
   _checkProofOfDelivery() {
     let escrowContract = this._checkEscrowContract()
     const proofOfDeliveryPacket = {
