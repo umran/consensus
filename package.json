@@ -1,5 +1,5 @@
 {
-  "name": "consensus",
+  "name": "consensus-core",
   "version": "0.0.0",
   "description": "Escrow based digital payment processor",
   "main": "lib/index.js",

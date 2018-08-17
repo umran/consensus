@@ -104,6 +104,18 @@ class TransactionChain {
   setProofOfDelivery(proofOfDeliveryMeta) {
     this._metaData.proofOfDelivery = proofOfDeliveryMeta
   }
+
+  checkPromiseOfPayment() {
+    return this._checkPromiseOfPayment()
+  }
+
+  checkEscrowContract() {
+    return this._checkEscrowContract()
+  }
+
+  checkProofOfDelivery() {
+    return this._checkProofOfDelivery()
+  }
 }
 
 module.exports = TransactionChain
