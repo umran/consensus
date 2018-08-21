@@ -1,4 +1,4 @@
-const Invoice = require('../src/messages').Invoice
+const Invoice = require('../src/protocols').trident.Invoice
 const crypto = require('../src/crypto')
 
 const idKeys = crypto.generateIdKeys()

@@ -1,5 +1,5 @@
-const AbstractMessage = require('./AbstractMessage')
-const validate = require('../validators').invoice
+const AbstractMessage = require('../AbstractMessage')
+const validate = require('../../validators').invoice
 
 class Invoice extends AbstractMessage {
   constructor(options) {

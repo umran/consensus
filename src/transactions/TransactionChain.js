@@ -1,9 +1,9 @@
 const crypto = require('../crypto')
 const encoders = require('../utilities/encoders')
-const Invoice = require('../messages').Invoice
-const PromiseOfPayment = require('../messages').PromiseOfPayment
-const EscrowContract = require('../messages').EscrowContract
-const ProofOfDelivery = require('../messages').ProofOfDelivery
+const Invoice = require('../protocols').trident.Invoice
+const PromiseOfPayment = require('../protocols').trident.PromiseOfPayment
+const EscrowContract = require('../protocols').trident.EscrowContract
+const ProofOfDelivery = require('../protocols').trident.ProofOfDelivery
 
 class TransactionChain {
   constructor(identities) {

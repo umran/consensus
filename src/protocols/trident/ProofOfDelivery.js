@@ -1,7 +1,7 @@
-const AbstractMessage = require('./AbstractMessage')
-const validate = require('../validators').promiseOfPayment
+const AbstractMessage = require('../AbstractMessage')
+const validate = require('../../validators').proofOfDelivery
 
-class PromiseOfPayment extends AbstractMessage {
+class ProofOfDelivery extends AbstractMessage {
   constructor(options) {
     super(options)
 
@@ -21,4 +21,4 @@ class PromiseOfPayment extends AbstractMessage {
 
 }
 
-module.exports = PromiseOfPayment
+module.exports = ProofOfDelivery

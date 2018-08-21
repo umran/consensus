@@ -1,5 +1,5 @@
-const AbstractMessage = require('./AbstractMessage')
-const validate = require('../validators').escrowContract
+const AbstractMessage = require('../AbstractMessage')
+const validate = require('../../validators').escrowContract
 
 class EscrowContract extends AbstractMessage {
   constructor(options) {

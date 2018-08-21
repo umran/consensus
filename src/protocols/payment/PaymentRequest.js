@@ -1,0 +1,1 @@
+const AbstractMessage = require('../AbstractMessage')
