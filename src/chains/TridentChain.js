@@ -5,7 +5,7 @@ const PromiseOfPayment = require('../protocols').trident.PromiseOfPayment
 const EscrowContract = require('../protocols').trident.EscrowContract
 const ProofOfDelivery = require('../protocols').trident.ProofOfDelivery
 
-class TransactionChain {
+class TridentChain {
   constructor(identities) {
     this._identities = identities
     this._metaData = {}
@@ -118,4 +118,4 @@ class TransactionChain {
   }
 }
 
-module.exports = TransactionChain
+module.exports = TridentChain

@@ -1,5 +1,5 @@
 const crypto = require('../src/crypto')
-const Chain = require('../src/transactions/TransactionChain')
+const Chain = require('../src/chains/TridentChain')
 const Invoice = require('../src/protocols').trident.Invoice
 const PromiseOfPayment = require('../src/protocols').trident.PromiseOfPayment
 const EscrowContract = require('../src/protocols').trident.EscrowContract
