@@ -1,6 +1,6 @@
 {
   "name": "consensus-core",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Escrow based digital payment processor",
   "main": "lib/index.js",
   "directories": {
