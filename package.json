@@ -31,6 +31,7 @@
     "ajv": "^6.5.2",
     "dinero.js": "^1.4.0",
     "google-closure-library": "^20180716.0.0",
-    "tweetnacl": "^1.0.0"
+    "tweetnacl": "^1.0.0",
+    "tweetnacl-util": "^0.15.0"
   }
 }
