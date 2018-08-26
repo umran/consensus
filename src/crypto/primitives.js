@@ -1,4 +1,7 @@
+var randomBytesPatch = require('./randomBytesPatch')
 var nacl = require('tweetnacl')
+
+nacl.setPRNG(randomBytesPatch)
 
 exports.generateSigningKeys = function() {
   var keyPair = nacl.sign.keyPair()

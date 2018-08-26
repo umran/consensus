@@ -29,6 +29,7 @@
   "homepage": "https://github.com/umran/consensus#readme",
   "dependencies": {
     "ajv": "^6.5.2",
+    "dinero.js": "^1.4.0",
     "google-closure-library": "^20180716.0.0",
     "tweetnacl": "^1.0.0"
   }

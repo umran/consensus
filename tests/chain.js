@@ -14,7 +14,7 @@ const Server = crypto.generateIdKeys()
 
 // Merchant creates the invoice
 const invoiceMessage = {
-  orderId: "1234983940982098123498394098209812349883940982098123498394098209",
+  orderId: "1234983940982098123498394098209812349883940982098123498394098809",
   manifest:[
     { item: "chicken korma", quantity: 2, price: 20, tax: 0.1 },
     { item: "garlic naan", quantity: 6, price: 4, tax: 0.1 }
