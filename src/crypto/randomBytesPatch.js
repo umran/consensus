@@ -1,4 +1,5 @@
-var randomBytes = require('crypto').randomBytes
+import crypto from 'crypto'
+var randomBytes = crypto.randomBytes
 
 function cleanup(arr) {
   for (var i = 0; i < arr.length; i++) arr[i] = 0
